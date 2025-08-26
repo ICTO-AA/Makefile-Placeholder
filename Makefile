@@ -15,9 +15,13 @@ FILES += $(wildcard ./src/*.cpp)
 FILES += $(wildcard ./src/*.hpp)
 
 setup:
-	mkdir -p src debug release
+	mkdir -p src $(FILE_PATH)
 
 main:
-	$(COMP) $(FILES) -o $(FILE_PATH)/main
+	$(COMP) $(FILES) -o $(FILE_PATH)/$(PROJECT_NAME)
 
 all: setup main
+
+clean:
+	rm -rf debug/
+	rm -rf release/
